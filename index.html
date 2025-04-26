@@ -19,11 +19,9 @@
     }
 
     .content {
-      position: absolute;
-      top: 30%;
-      left: 15%; /* чуть левее */
-      transform: translate(-50%, -50%);
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     .message {
@@ -32,26 +30,57 @@
       font-weight: bold;
     }
 
-    .arrow-line {
+    .arrow {
+      width: 200px;
+      height: 200px;
       position: absolute;
-      width: 0;
-      height: 0;
-      border: 4px solid red;
-      top: 32%;
-      left: 18%;
-      transform: rotate(45deg);
-      transform-origin: top left;
-      animation: drawArrow 2s forwards;
+      top: 50%;
+      left: 50%;
+      transform: translate(-20%, -20%);
     }
 
-    @keyframes drawArrow {
+    .arrow::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 120px;
+      background: red;
+      top: 0;
+      left: 50%;
+      transform: rotate(45deg);
+      transform-origin: top;
+      animation: drawLine 1s forwards;
+    }
+
+    .arrow::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-right: 4px solid red;
+      border-bottom: 4px solid red;
+      top: 110px;
+      left: 50%;
+      transform: translate(-50%, 0) rotate(45deg);
+      opacity: 0;
+      animation: appearHead 1s forwards 1s;
+    }
+
+    @keyframes drawLine {
       from {
-        width: 0;
         height: 0;
       }
       to {
-        width: 600px; /* теперь длинная линия до кнопки */
-        height: 0;
+        height: 120px;
+      }
+    }
+
+    @keyframes appearHead {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
       }
     }
   </style>
@@ -60,9 +89,8 @@
 
   <div class="content">
     <div class="message">👨‍🍳 Chef Arni here!</div>
+    <div class="arrow"></div>
   </div>
-
-  <div class="arrow-line"></div>
 
   <script src="https://unpkg.com/@fleek-platform/agents-chatbox-widget@latest/dist/chatbox.min.js?agentId=tpqnnr91zkdbenpvpilf7xvl&restApiHost=https%3A%2F%2Fapi.fleek.xyz%2F&token=NppNEDezYEFYCYgPnpnuzY"></script>
 
