@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chef Arni Chat</title>
+  <title>Chat with Fleek Agent</title>
   <style>
     body {
       margin: 0;
@@ -12,85 +12,46 @@
       height: 100vh;
       width: 100vw;
       overflow: hidden;
-      position: relative;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-    }
-
-    .content {
-      text-align: center;
       position: relative;
-      z-index: 1;
     }
 
     .message {
       font-size: 32px;
       color: #333;
       font-weight: bold;
+      margin-bottom: 20px;
     }
 
     .arrow {
-      width: 200px;
-      height: 200px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-20%, -20%);
-    }
-
-    .arrow::before {
-      content: '';
-      position: absolute;
-      width: 4px;
-      height: 120px;
-      background: red;
-      top: 0;
-      left: 50%;
+      width: 80px;
+      height: 80px;
+      border-right: 8px solid red;
+      border-bottom: 8px solid red;
       transform: rotate(45deg);
-      transform-origin: top;
-      animation: drawLine 1s forwards;
-    }
-
-    .arrow::after {
-      content: '';
       position: absolute;
-      width: 20px;
-      height: 20px;
-      border-right: 4px solid red;
-      border-bottom: 4px solid red;
-      top: 110px;
-      left: 50%;
-      transform: translate(-50%, 0) rotate(45deg);
-      opacity: 0;
-      animation: appearHead 1s forwards 1s;
+      bottom: 100px; /* поднял стрелку выше */
+      right: 80px;  /* сместил стрелку левее */
+      animation: bounce 2s infinite;
     }
 
-    @keyframes drawLine {
-      from {
-        height: 0;
+    @keyframes bounce {
+      0%, 100% {
+        transform: rotate(45deg) translate(0, 0);
       }
-      to {
-        height: 120px;
-      }
-    }
-
-    @keyframes appearHead {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
+      50% {
+        transform: rotate(45deg) translate(-10px, -10px);
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="content">
-    <div class="message">👨‍🍳 Chef Arni here!</div>
-    <div class="arrow"></div>
-  </div>
+  <div class="message">👨‍🍳 Chef Arni here!</div>
+  <div class="arrow"></div>
 
   <script src="https://unpkg.com/@fleek-platform/agents-chatbox-widget@latest/dist/chatbox.min.js?agentId=tpqnnr91zkdbenpvpilf7xvl&restApiHost=https%3A%2F%2Fapi.fleek.xyz%2F&token=NppNEDezYEFYCYgPnpnuzY"></script>
 
