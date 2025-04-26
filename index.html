@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chat with Arni Agent</title>
+  <title>Chat with Arni</title>
   <style>
     body {
       margin: 0;
@@ -13,25 +13,11 @@
       align-items: center;
       font-family: Arial, sans-serif;
     }
-    #chatbox-container {
-      width: 100%;
-      height: 100%;
-    }
   </style>
 </head>
 <body>
-  <div id="chatbox-container"></div>
 
-  <script src="https://unpkg.com/@fleek-platform/agents-chatbox-widget@latest/dist/chatbox.min.js"></script>
-  <script>
-    new window.FleekAgentsChatboxWidget.Chatbox({
-      agentId: 'tpqnnr91zkdbenpvpilf7xvl',
-      restApiHost: 'https://api.fleek.xyz/',
-      token: 'NppNEDezYEFYCYgPnpnuzY',
-      autoOpen: true, // ВАЖНО: открывает чат сразу
-      container: '#chatbox-container', // Встраивает в центр страницы
-      hideLauncher: true // Убирает кнопку запуска чата
-    });
-  </script>
+  <script src="https://unpkg.com/@fleek-platform/agents-chatbox-widget@latest/dist/chatbox.min.js?agentId=tpqnnr91zkdbenpvpilf7xvl&restApiHost=https%3A%2F%2Fapi.fleek.xyz%2F&token=NppNEDezYEFYCYgPnpnuzY"></script>
+
 </body>
 </html>
