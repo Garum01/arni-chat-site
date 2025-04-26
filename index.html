@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Chat with Fleek Agent</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-    }
-    #chatbox-container {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Chat with Fleek Agent</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .message {
+            font-size: 32px;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .arrow {
+            width: 80px;
+            height: 80px;
+            border-right: 8px solid red;
+            border-bottom: 8px solid red;
+            transform: rotate(45deg);
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: rotate(45deg) translate(0, 0);
+            }
+            50% {
+                transform: rotate(45deg) translate(-10px, -10px);
+            }
+        }
+    </style>
 </head>
 <body>
-  <div id="chatbox-container"></div>
 
-  <script src="https://unpkg.com/@fleek-platform/agents-chatbox-widget@latest/dist/chatbox.min.js"></script>
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      new window.FleekAgentsChatboxWidget.Chatbox({
-        agentId: 'tpqnnr91zkdbenpvpilf7xvl',
-        restApiHost: 'https://api.fleek.xyz/',
-        token: 'NppNEDezYEFYCYgPnpnuzY',
-        container: '#chatbox-container',   // Важно! Показываем чат сразу в div
-        autoOpen: true,                    // Автоматически открывать
-        hideLauncher: true,                 // Убрать плавающую кнопку
-        initialMessage: 'Hey 👋 Ready to chat with Arni?'  // Кастомное приветствие
-      });
-    });
-  </script>
+    <div class="message">👨‍🍳 Chef Arni here!</div>
+    <div class="arrow"></div>
+
+    <script src="https://unpkg.com/@fleek-platform/agents-chatbox-widget@latest/dist/chatbox.min.js?agentId=tpqnnr91zkdbenpvpilf7xvl&restApiHost=https%3A%2F%2Fapi.fleek.xyz%2F&token=NppNEDezYEFYCYgPnpnuzY"></script>
+
 </body>
 </html>
+
